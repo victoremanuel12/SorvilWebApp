@@ -1,4 +1,5 @@
 ﻿using BookStore.Models;
+using BookStore.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,27 +7,28 @@ namespace BookStore.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly RequestApiBook _requestApiBook;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(RequestApiBook requestApiBook)
         {
-            _logger = logger;
+            _requestApiBook = requestApiBook;
         }
 
-        public IActionResult Index()
+
+        public async Task<IActionResult> Index()
         {
+            try
+            {
+                var books = await _requestApiBook.SearchBooks("Seja foda!");
+            }
+            catch (Exception)
+            {
+                TempData["Error"] = "Não foi possivel carregar  os livros no momento!";
+                
+            }
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+       
     }
 }
