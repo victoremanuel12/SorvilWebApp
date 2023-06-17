@@ -1,4 +1,5 @@
 ﻿using BookStore.DTOs;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System.Text.Json;
@@ -16,6 +17,7 @@ namespace BookStore.Services
         }
         public async Task<GoogleBookResponseDTO> SearchBooks(string searchTerm)
         {
+            GoogleBookResponseDTO books = null;
             try
             {
                 string requestUrl = $"volumes?q={searchTerm}&key={_appSettings.GoogleBooksApiKey}";
@@ -25,24 +27,45 @@ namespace BookStore.Services
                 if (response.IsSuccessStatusCode)
                 {
                     string responseData = await response.Content.ReadAsStringAsync();
-                    GoogleBookResponseDTO books = JsonConvert.DeserializeObject<GoogleBookResponseDTO>(responseData);
+                    books = JsonConvert.DeserializeObject<GoogleBookResponseDTO>(responseData);
                     return books;
                 }
                 else
                 {
-                    return null;
+                    return books;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw new Exception(ex.Message);
+
             }
 
         }
-        //public async Task<Book> GetBookByISBN(string isbn)
-        //{
-        //    return Book;
-        //}
+        public async Task<BookDTO> GetBookById(string bookId)
+        {
+            BookDTO book = null;
+
+            try
+            {
+                string requestUrl = $"volumes/{bookId}?key={_appSettings.GoogleBooksApiKey}";
+                HttpResponseMessage response = await _httpClient.GetAsync(requestUrl);
+                if (response.IsSuccessStatusCode)
+                {
+                    string responseData = await response.Content.ReadAsStringAsync();
+                    book = JsonConvert.DeserializeObject<BookDTO>(responseData);
+                    return book;
+
+                }
+
+            }
+            catch(Exception ex) 
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return book;
+        }
     }
 }

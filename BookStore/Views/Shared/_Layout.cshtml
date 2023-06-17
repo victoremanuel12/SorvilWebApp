@@ -35,6 +35,16 @@
                                 <a class="nav-link text-dark" asp-controller="UserAccount" asp-action="Logout">Sair</a>
                             </li>
                         }
+                        <li class="nav-item">
+                            @using (Html.BeginForm("List", "SearchBook", FormMethod.Get))
+                            {
+                                <div class="form-group">
+                                    <label for="titleBook">Digite o nome do livro:</label>
+                                    <input type="text" name="titleBook" class="form-control" id="titleBook" />
+                                </div>
+                                <button type="submit" class="btn btn-primary">Pesquisar</button>
+                            }
+                        </li>
                     </ul>
                 </div>
             </div>

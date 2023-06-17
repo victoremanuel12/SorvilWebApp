@@ -1,0 +1,17 @@
+﻿@model BookStore.ViewModels.BookViewModel
+@if (Model.Items != null && Model.Items.Count > 0)
+{
+    <h1>Livros encontrados:</h1>
+    foreach (var livro in Model.Items)
+    {
+        <h2>@livro.VolumeInfo.Title</h2>
+        <img src="@(!string.IsNullOrEmpty(livro.VolumeInfo.ImageLinks?.SmallThumbnail) ?
+                    livro.VolumeInfo.ImageLinks.SmallThumbnail :
+                    livro.VolumeInfo.ImageLinks?.Thumbnail)" alt="Imagem do livro" />
+        <button><a asp-action="Details" asp-controller="SearchBook" asp-route-bookId="@livro.Id">Detalhes</a></button>
+    }
+}
+else
+{
+    <h1>Não foram encontrados livros</h1>
+}

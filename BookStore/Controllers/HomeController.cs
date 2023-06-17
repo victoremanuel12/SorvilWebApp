@@ -7,6 +7,7 @@ namespace BookStore.Controllers
 {
     public class HomeController : Controller
     {
+
         private readonly RequestApiBook _requestApiBook;
 
         public HomeController(RequestApiBook requestApiBook)
@@ -14,18 +15,8 @@ namespace BookStore.Controllers
             _requestApiBook = requestApiBook;
         }
 
-
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            try
-            {
-                var books = await _requestApiBook.SearchBooks("Seja foda!");
-            }
-            catch (Exception)
-            {
-                TempData["Error"] = "Não foi possivel carregar  os livros no momento!";
-                
-            }
             return View();
         }
 
