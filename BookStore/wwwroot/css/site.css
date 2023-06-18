@@ -1,22 +1,83 @@
-html {
-  font-size: 14px;
+@import url('https://fonts.googleapis.com/css2?family=Rambla:ital,wght@0,400;0,700;1,400&display=swap');
+html, body, :root {
+    margin: 0;
+    padding: 0;
+    background-color: #202124;
+    color: #FFFFFF;
+    font-family: 'Rambla', sans-serif;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+
+.crd-green {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 10px;
+    font-size: 45px;
+    letter-spacing: 0.2px;
+    font-weight: 800;
+    background-color: rgba(17, 74, 47, 0.62);
+    border-radius: 25px;
+    line-height: 3rem;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.crd-green-subtitle {
+    font-size: 32px;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+.f-green {
+    color:#3EAF3F;
 }
 
-body {
-  margin-bottom: 60px;
+.srvl-btn-green {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    width: 250px;
+    height: 75px;
+    background: #0F9D58;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.57), inset 1px 5px 7px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    border: none;
+
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #D8D8D8;
+
+    transition: 600ms all;
+}
+
+.srvl-btn-green:hover{
+    transform: scale(1.02);
+}
+
+.srvl-btn-white {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    width: 250px;
+    height: 65px;
+    background: #D8D8D8;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.57), inset 1px 5px 7px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    border: none;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.2px;
+    color: #393A3F;
+
+    transition: 600ms all;
+}
+
+.srvl-btn-white:hover {
+    transform: scale(1.02);
 }
