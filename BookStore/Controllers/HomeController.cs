@@ -19,16 +19,6 @@ namespace BookStore.Controllers
         {
             return View();
         }
-
-        public IActionResult Login()
-        {
-            return View();
-        }
-
-        public IActionResult Registro()
-        {
-            return View();
-        }
        
     }
 }

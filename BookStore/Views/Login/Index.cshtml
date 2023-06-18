@@ -2,3 +2,21 @@
 
 @{
 }
+
+
+<div class="container d-flex flex-column justify-content-center align-items-center w-100 h-100 gap-2">
+    <div class="crd-grey">
+        <img src="~/img/sorvil-logo.png" />
+
+        <input type="email" class="form-control" id="txtEmail" placeholder="Email" style="width: 240px;height: 58px;">
+        <input type="password" class="form-control" id="pswdSenha" placeholder="Senha" style="width: 240px;height: 58px;">
+
+        <button class="srvl-btn-green" style="width: 240px;height: 45px;" onclick="location.href='@Url.Action("Autenticar","Login")'">
+            L O G I N 
+        </button>
+        <button class="srvl-btn-white" style="width: 240px;height: 35px;" onclick="location.href='@Url.Action("Index","Home")'">
+            V O L T A R
+        </button>
+    </div>  
+</div>
+

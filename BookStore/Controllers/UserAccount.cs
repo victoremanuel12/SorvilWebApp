@@ -25,7 +25,7 @@ namespace BookStore.Controllers
         {
             if (user !=null)
             {
-                var usuarioCadastrado = await _uow.UserRepository.Get(u => u.Email == user.Email && u.Password == Hash.MD5(user.Password));
+                var usuarioCadastrado = await _uow.UserRepository.Get(u => u.Email == user.Email && u.Senha == Hash.MD5(user.Senha));
                 if (usuarioCadastrado != null)
                 {
                     TempData["Success"] = "Login efetuado com sucesso!";
@@ -38,31 +38,6 @@ namespace BookStore.Controllers
                 }
             }
            
-            return View();
-        }
-        public IActionResult Register()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(User user)
-        {
-            try
-            {
-                var newUser = new User(user.Name, user.Email, Hash.MD5(user.Password));
-                _uow.UserRepository.Add(newUser);
-                await _uow.Commit();
-                ClienteInSession.SetClienteInSession(HttpContext, newUser);
-                TempData["Success"] = "Cadastro efetuado com sucesso.";
-                return RedirectToAction("Index", "Home");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-                TempData["Error"] = "Não foi possível efetuar o cadastro";
-            }
             return View();
         }
 

@@ -44,17 +44,17 @@ namespace BookStore.Controllers
             {
                 if (!string.IsNullOrEmpty(bookId))
                 {
-                    var book = _requestApiBook.GetBookById(bookId);
+                    var book = await _requestApiBook.GetBookById(bookId);
                     var viewModel = new BookDetailsViewModel
                     {
-                        Id = book.Result.Id,
-                        Authors = book.Result.VolumeInfo.Authors,
-                        Description = book.Result.VolumeInfo.Description,
-                        ImageLinks = book.Result.VolumeInfo.ImageLinks,
-                        IndustryIdentifiers = book.Result.VolumeInfo.IndustryIdentifiers,
-                        PageCount = book.Result.VolumeInfo.PageCount,
-                        PublishedDate = book.Result.VolumeInfo.PublishedDate,
-                        Title = book.Result.VolumeInfo.Title
+                        Id = book.Id,
+                        Authors = book.VolumeInfo.Authors,
+                        Description = book.VolumeInfo.Description,
+                        ImageLinks = book.VolumeInfo.ImageLinks,
+                        IndustryIdentifiers = book.VolumeInfo.IndustryIdentifiers,
+                        PageCount = book.VolumeInfo.PageCount,
+                        PublishedDate = book.VolumeInfo.PublishedDate,
+                        Title = book.VolumeInfo.Title
                     };
                     return View(viewModel);
 

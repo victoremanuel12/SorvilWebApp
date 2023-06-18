@@ -12,7 +12,7 @@ namespace TccMvc.Services
         public static void SetClienteInSession(HttpContext httpContext, User user)
         {
             httpContext.Session.SetString("UserId", user.Id.ToString());
-            httpContext.Session.SetString("UserName", user.Name);
+            httpContext.Session.SetString("UserName", user.Nome);
         }
 
     }
