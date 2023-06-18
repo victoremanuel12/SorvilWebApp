@@ -1,19 +1,26 @@
 ﻿<link rel="stylesheet" href="~/css/Home/styles.css" asp-append-version="true" />
 
+@model BookStore.ViewModels.LoginViewModel;
 @{
 }
-
 
 <div class="container d-flex flex-column justify-content-center align-items-center w-100 h-100 gap-2">
     <div class="crd-grey">
         <img src="~/img/sorvil-logo.png" />
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>
+                <input asp-for="Email" type="email" class="form-control mb-2" id="txtEmail" placeholder="Email" style="width: 240px;height: 58px;">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div>
+                <input asp-for="Senha" type="password" class="form-control mb-2" id="pswdSenha" placeholder="Senha" style="width: 240px;height: 58px;">
+                <span asp-validation-for="Senha" class="text-danger"></span>
+            </div>
+            <input class="srvl-btn-green" style="width: 240px;height: 45px;" value="L O G I N" type="submit" />
 
-        <input type="email" class="form-control" id="txtEmail" placeholder="Email" style="width: 240px;height: 58px;">
-        <input type="password" class="form-control" id="pswdSenha" placeholder="Senha" style="width: 240px;height: 58px;">
+        </form>
 
-        <button class="srvl-btn-green" style="width: 240px;height: 45px;" onclick="location.href='@Url.Action("Autenticar","Login")'">
-            L O G I N 
-        </button>
         <button class="srvl-btn-white" style="width: 240px;height: 35px;" onclick="location.href='@Url.Action("Index","Home")'">
             V O L T A R
         </button>

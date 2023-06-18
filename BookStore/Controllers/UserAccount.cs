@@ -20,27 +20,6 @@ namespace BookStore.Controllers
             return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Login(User user)
-        {
-            if (user !=null)
-            {
-                var usuarioCadastrado = await _uow.UserRepository.Get(u => u.Email == user.Email && u.Senha == Hash.MD5(user.Senha));
-                if (usuarioCadastrado != null)
-                {
-                    TempData["Success"] = "Login efetuado com sucesso!";
-                    ClienteInSession.SetClienteInSession(HttpContext, usuarioCadastrado);
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    TempData["Error"] = " Usuario ou senha não encontrados";
-                }
-            }
-           
-            return View();
-        }
-
         public IActionResult Logout()
         {
             if (HttpContext.Session.GetString("UserId") != null)

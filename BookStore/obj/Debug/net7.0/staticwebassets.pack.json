@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\img\\background.png"
     },
     {
+      "Id": "D:\\Sorvil\\BookStore\\wwwroot\\img\\sorvil-logo.png",
+      "PackagePath": "staticwebassets\\img\\sorvil-logo.png"
+    },
+    {
       "Id": "D:\\Sorvil\\BookStore\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
