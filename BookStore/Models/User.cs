@@ -34,5 +34,8 @@ namespace BookStore.Models
         [DataType(DataType.Password)]
         public string Senha { get; set; }
         public DateTime DataCadastro { get; set; }
+        public List<UserBook> Book { get; set; }
+
+
     }
 }
