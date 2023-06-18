@@ -2,9 +2,10 @@
 {
     public enum BookStatus
     {
-        Desisti,
-        Lendo,
-        Concluído
+        Desisti = 0,
+        Lendo = 1,
+        Concluído = 2,
+        Lerei = 3,
     }
     public class UserBook
     {
@@ -16,7 +17,7 @@
         public string Image { get; set; }
         public int PageCount { get; set; }
         public string IndustryIdentifier { get; set; }
-        public DateTime PublishedDate { get; set; }
+        public string PublishedDate { get; set; }
         public BookStatus Status { get; set; }
         public virtual int UserId { get; set; }
 

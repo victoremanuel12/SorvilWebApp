@@ -24,7 +24,7 @@ namespace BookStore.Controllers
         {
             if (HttpContext.Session.GetString("UserId") != null)
             {
-                ClienteInSession.GetClienteIdFromSession(HttpContext);
+                ClienteInSession.GetClienteFromSession(HttpContext);
                 HttpContext.Session.Clear();
                 TempData["Success"] = "Logout efetuado com sucesso";
             }

@@ -1,8 +1,6 @@
 ﻿using BookStore.DTOs;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
-using System.Text.Json;
 
 namespace BookStore.Services
 {
@@ -60,7 +58,7 @@ namespace BookStore.Services
                 }
 
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
