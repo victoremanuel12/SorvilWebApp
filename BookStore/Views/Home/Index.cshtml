@@ -1,4 +1,4 @@
-﻿
+﻿<link rel="stylesheet" href="~/css/Home/styles.css" asp-append-version="true" />
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -7,10 +7,25 @@
     <div id="mensagem-sucesso" class="alert alert-success text-center mt-3">@TempData["Success"]</div>
     
 }
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container d-flex flex-column justify-content-center align-items-center w-100 h-100 gap-2">
+    <div class="crd-green">
+        <span >
+            FAÇA PARTE DA <span class="f-green">COMUNIDADE</span>
+        </span>
+        <span class="crd-green-subtitle">
+            DE <span class="f-green">LITERATURA</span> MAIS
+        </span>
+        <span>
+            <span class="f-green">QUERIDA</span> DO BRASIL
+        </span>
+    </div>
+
+    <button class="srvl-btn-green" onclick="location.href='@Url.Action("Login","Home")'">L O G IN</button>
+    <button class="srvl-btn-white" onclick="location.href='@Url.Action("Registro","Home")'">R E G I S T R O</button>
 </div>
+
+
+
 <script>
     setTimeout(function () {
         document.getElementById("mensagem-sucesso").style.display = "none";
