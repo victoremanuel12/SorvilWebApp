@@ -2,16 +2,10 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-@if (TempData["Success"] != null)
-{
-    <div id="mensagem-sucesso" class="alert alert-success text-center mt-3">@TempData["Success"]</div>
-    
-}
+
 <div class="container d-flex flex-column justify-content-center align-items-center w-100 h-100 gap-2">
    Home
 </div>
-
-
 
 <script>
     setTimeout(function () {

@@ -2,7 +2,7 @@
 using BookStore.Repository.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using TccMvc.Cripitografia;
-using TccMvc.Services;
+using BookStore.Utils;
 
 namespace BookStore.Controllers
 {

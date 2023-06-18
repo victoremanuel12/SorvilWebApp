@@ -9,7 +9,14 @@
     <link rel="stylesheet" href="~/BookStore.styles.css" asp-append-version="true" />
 </head>
 <body>
-    @if (true)
+    @if (TempData["Success"] != null)
+    {
+        <div class="d-flex flex-column align-items-center">
+            <div id="mensagem-sucesso" class="alert alert-success text-center mt-3" style="position:absolute">@TempData["Success"]</div>
+        </div>
+    }
+
+    @if (BookStore.Utils.ClienteInSession.UsuarioAutenticado != null)
     {
         <header>
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
