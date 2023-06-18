@@ -57,7 +57,6 @@ namespace BookStore.Controllers
                         Title = book.VolumeInfo.Title
                     };
                     return View(viewModel);
-
                 }
             }
             catch
