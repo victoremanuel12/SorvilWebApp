@@ -3,9 +3,9 @@
     public enum BookStatus
     {
         Desisti = 0,
-        Lendo = 1,
-        Concluído = 2,
-        Lerei = 3,
+        Lerei = 1,
+        Lendo = 2,
+        Concluído = 3,
     }
     public class UserBook
     {
