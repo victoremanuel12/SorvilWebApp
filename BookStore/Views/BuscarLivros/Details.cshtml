@@ -4,9 +4,85 @@
     ViewData["CardTitle"] = "BUSCAR LIVROS";
 }
 
-<h1>@Model.Title</h1>
-<hr />
-<h5>Adicione a sua lista:</h5>
-<button name="status" value="Concuido"><a>Já Li</a></button>
-<button><a asp-controller="UserBook" asp-action="Index" asp-route-bookStatus= 3 asp-route-bookId="@Model.Id">Lerei</a></button>
-<button name="status" value="Desisti"><a>Desisti</a></button>
+
+
+<div class="px-5">
+    <div class="d-flex flex-row">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <img src="@(!string.IsNullOrEmpty(@Model.ImageLinks?.SmallThumbnail) ? @Model.ImageLinks.SmallThumbnail :
+                (!string.IsNullOrEmpty(@Model.ImageLinks?.Thumbnail)) ? @Model.ImageLinks?.Thumbnail : "/img/book-empty.jpg")"
+                 style="height:175px;width:155px;"
+                 alt="Imagem do livro" />
+        </div>
+        <div class="ps-3">
+            
+            <h4>
+                <b>Título:</b> 
+                @if (!String.IsNullOrEmpty(@Model.Title))
+                {
+                    <span>@Model.Title</span>
+                }
+                else
+                {
+                    <span>Título não identificado </span>
+                }
+            </h4>
+
+            <h5><b>Autor(es):</b>
+                @if (!String.IsNullOrEmpty(@String.Join(", ", Model.Authors)))
+                {
+                    <span>@String.Join(", ", Model.Authors)</span>
+                } 
+                else
+                {
+                    <span>Autor não identificado</span>
+                }
+            </h5>
+            <h5><b>Quantidade de Páginas:</b>
+                @if (!String.IsNullOrEmpty(@Model.PageCount.ToString())) 
+                {
+                    <span>@Model.PageCount</span>
+                } 
+                else
+                {
+                    <span>Número de páginas não identificadas</span>
+
+                }
+            </h5>
+            <h5><b>Data de Publicação:</b>
+                @if (!String.IsNullOrEmpty(@Model.PublishedDate)) 
+                { 
+                    <span>@Model.PublishedDate</span>
+                } 
+                else
+                {
+                    <span>Data de publicação não identificada</span>
+                }
+            </h5>
+            <h5><b>Código do Livro:</b>
+                @if (!String.IsNullOrEmpty(@Model.Id))
+                {
+                    <span>@Model.Id</span>
+                } 
+                else
+                {
+                    <span>Código não identificado</span>
+                }
+            </h5>
+
+        </div>
+    </div>
+    <hr />
+    <div style="height:270px; width:970px ; box-sizing: border-box;">
+        <p style="font-size: 85%;">@String.Format($"{@Model.Description}","")</p>
+    </div>
+
+    <div class="px-2">
+        <div class="d-flex flex-row align-items-center justify-content-center gap-2">
+            <button class="sidebar-btn-grey" onclick="location.href='@Url.Action("Index","UserBook",new {bookId = Model.Id, bookStatus = 0})'">DESISTI</button>
+            <button class="sidebar-btn-green" onclick="location.href='@Url.Action("Index","UserBook",new {bookId = Model.Id, bookStatus = 1})'">LEREI</button>
+            <button class="sidebar-btn-green" onclick="location.href='@Url.Action("Index","UserBook",new {bookId = Model.Id, bookStatus = 2})'">LENDO</button>
+            <button class="sidebar-btn-green" onclick="location.href='@Url.Action("Index","UserBook",new {bookId = Model.Id, bookStatus = 3})'">CONCLUÍDO</button>
+        </div>
+    </div>
+</div>

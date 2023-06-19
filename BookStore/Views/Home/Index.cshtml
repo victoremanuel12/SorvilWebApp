@@ -1,11 +1,150 @@
 ﻿<link rel="stylesheet" href="~/css/Home/styles.css" asp-append-version="true" />
+@model BookStore.ViewModels.HomeViewModel;
 @{
     ViewData["Title"] = "Home Page";
     ViewData["CardTitle"] = "HOME";
 }
 
-<div class="container d-flex flex-column justify-content-center align-items-center w-100 h-100 gap-2">
-   Home
+<div class="container d-flex flex-column flex-wrap justify-content-start align-items-start w-100 h-100 gap-2 ms-5">
+    @if (Model.LivrosNaoLidos.Any())
+    {
+        <div class="row d-flex flex-row gap-1">
+            <p style="font-weight:bold">Livros que eu não li:</p>
+            @foreach (var livro in Model.LivrosNaoLidos)
+            {
+            <div class="card-book">
+                <img class="card-book-image"
+                 src="@(!string.IsNullOrEmpty(livro.Image) ? livro.Image : "/img/book-empty.jpg")" alt="Imagem do livro" />
+                <div class="card-book-info">
+                    <span class="card-book-title">
+                        @if (@livro.Title.Length > 22)
+                        {
+                            <span>@String.Concat(@livro.Title.Substring(0, 22), "...")</span>
+                        }
+                        else
+                        {
+                            <span>@livro.Title</span>
+                        }
+
+                    </span>
+                    <span class="card-book-authors">
+                        @if (livro.Author != null)
+                        {
+                            <span>@livro.Author</span>
+                        }
+                    </span>
+                </div>
+            </div>
+            }
+        </div>
+
+    }
+    @if (Model.LivrosLerei.Any())
+    {
+        <div class="row d-flex flex-row gap-1">
+
+            <p style="font-weight:bold">Livros que eu lerei:</p>
+            @foreach (var livro in Model.LivrosLerei)
+            {
+            <div class="card-book">
+                <img class="card-book-image"
+                 src="@(!string.IsNullOrEmpty(livro.Image) ? livro.Image : "/img/book-empty.jpg")" alt="Imagem do livro" />
+                <div class="card-book-info">
+                    <span class="card-book-title">
+                        @if (@livro.Title.Length > 22)
+                        {
+                            <span>@String.Concat(@livro.Title.Substring(0, 22), "...")</span>
+                        }
+                        else
+                        {
+                            <span>@livro.Title</span>
+                        }
+
+                    </span>
+                    <span class="card-book-authors">
+                        @if (livro.Author != null)
+                        {
+                            <span>@livro.Author</span>
+                        }
+                    </span>
+                </div>
+            </div>
+
+            }
+        </div>
+
+    }
+    @if (Model.LivrosLendo.Any())
+    {
+        <div class="row d-flex flex-row gap-1">
+            <p style="font-weight:bold">Livros sendo Lidos:</p>
+            @foreach (var livro in Model.LivrosLendo)
+            {
+            <div class="card-book">
+                <img class="card-book-image"
+                 src="@(!string.IsNullOrEmpty(livro.Image) ? livro.Image : "/img/book-empty.jpg")" alt="Imagem do livro" />
+                <div class="card-book-info">
+                    <span class="card-book-title">
+                        @if (@livro.Title.Length > 22)
+                        {
+                            <span>@String.Concat(@livro.Title.Substring(0, 22), "...")</span>
+                        }
+                        else
+                        {
+                            <span>@livro.Title</span>
+                        }
+
+                    </span>
+                    <span class="card-book-authors">
+                        @if (livro.Author != null)
+                        {
+                            <span>@livro.Author</span>
+                        }
+                    </span>
+                </div>
+            </div>
+
+            }
+        </div>
+
+    }
+    @if (Model.LivrosConcluidos.Any())
+    {
+        <div class="row d-flex flex-row gap-1">
+
+            <p style="font-weight:bold">Livros Concluídos:</p>
+        @foreach (var livro in Model.LivrosConcluidos)
+        {
+            <div class="card-book">
+                <img class="card-book-image"
+             src="@(!string.IsNullOrEmpty(livro.Image) ? livro.Image : "/img/book-empty.jpg")" alt="Imagem do livro" />
+                <div class="card-book-info">
+                    <span class="card-book-title">
+                        @if (@livro.Title.Length > 22)
+                        {
+                            <span>@String.Concat(@livro.Title.Substring(0, 22), "...")</span>
+                        }
+                        else
+                        {
+                            <span>@livro.Title</span>
+                        }
+
+                    </span>
+                    <span class="card-book-authors">
+                        @if (livro.Author != null)
+                        {
+                            <span>@livro.Author</span>
+                        }
+                    </span>
+                </div>
+            </div>
+
+        }
+                </div>
+
+    }
+
+
 </div>
 
 <script>

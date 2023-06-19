@@ -4,11 +4,22 @@
     ViewData["CardTitle"] = "BUSCAR LIVROS";
 }
 
+@using (Html.BeginForm("List", "BuscarLivros", FormMethod.Get))
+{
+    <div class="d-flex flex-row align-items-center justify-content-end justify-content-end gap-1 me-3">
+        <input type="text" name="titleBook" class="form-control" id="titleBook" placeholder="Buscar" style="width: 250px;height: 40px;" />
+        <button type="submit" class="sidebar-btn-grey" style="width: 150px;height: 40px;">
+            PESQUISAR
+        </button>
+    </div>
+}
 
 <div class="mx-3">
     <span>Resultados da Busca "@Model.ResultadoDaBusca": </span>
 </div>
-<div class="d-flex flex-row flex-wrap gap-3 px-3">
+<br />
+
+<div class="d-flex flex-row justify-content-center flex-wrap gap-3 px-3">
     @if (Model.Items != null && Model.Items.Count > 0)
     {
         @foreach (var livro in Model.Items)
@@ -19,9 +30,9 @@
                 (!string.IsNullOrEmpty(livro.VolumeInfo.ImageLinks?.Thumbnail)) ? livro.VolumeInfo.ImageLinks?.Thumbnail : "/img/book-empty.jpg")" alt="Imagem do livro" />
                 <div class="card-book-info">
                     <span class="card-book-title">
-                        @if (@livro.VolumeInfo.Title.Length > 25)
+                        @if (@livro.VolumeInfo.Title.Length > 22)
                         {
-                            <span>@String.Concat(@livro.VolumeInfo.Title.Substring(0, 25), "...")</span>
+                            <span>@String.Concat(@livro.VolumeInfo.Title.Substring(0, 22), "...")</span>
                         }
                         else
                         {
@@ -32,16 +43,13 @@
                     <span class="card-book-authors">
                         @if (livro.VolumeInfo.Authors != null)
                         {
-                            @foreach (var autor in livro.VolumeInfo.Authors)
+                            @if (livro.VolumeInfo.Authors.First().Length > 22)
                             {
-                                @if (autor.Length > 25)
-                                {
-                                    <span>@String.Concat(autor.Substring(0, 25), "...")</span>
-                                }
-                                else
-                                {
-                                    <span>@autor</span>
-                                }
+                                <span>@String.Concat(livro.VolumeInfo.Authors.First().Substring(0, 22), "...")</span>
+                            }
+                            else
+                            {
+                            <span>@livro.VolumeInfo.Authors.First()</span>
                             }
                         }
                         else
@@ -50,7 +58,7 @@
                         }
                     </span>
                 </div>
-                <button class="srvl-btn-green" onclick="location.href='@Url.Action("Details","BuscarLivros",new {bookId = livro.Id})'" style="width: 120px;height: 30px;">DETALHES</button>
+                <button class="sidebar-btn-green" onclick="location.href='@Url.Action("Details","BuscarLivros",new {bookId = livro.Id})'" style="width: 120px;height: 30px; box-shadow: none;">DETALHES</button>
             </div>
         }
     }
