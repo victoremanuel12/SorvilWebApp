@@ -21,5 +21,10 @@ namespace BookStore.Utils
             httpContext.Session.SetString("UserJson", UsuarioAutenticadoJson);
         }
 
+        public static void RemoveClienteFromSession(HttpContext httpContext)
+        {
+            httpContext.Session.Clear();
+            UsuarioAutenticado = null;
+        }
     }
 }

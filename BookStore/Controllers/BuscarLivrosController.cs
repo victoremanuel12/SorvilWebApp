@@ -6,14 +6,20 @@ using System.Net;
 
 namespace BookStore.Controllers
 {
-    public class SearchBookController : Controller
+    public class BuscarLivrosController : Controller
     {
         private readonly RequestApiBook _requestApiBook;
 
-        public SearchBookController(RequestApiBook requestApiBook)
+        public BuscarLivrosController(RequestApiBook requestApiBook)
         {
             _requestApiBook = requestApiBook;
         }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+
         public async Task<IActionResult> List(string titleBook)
         {
             try

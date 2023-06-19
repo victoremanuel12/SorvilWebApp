@@ -36,19 +36,26 @@
                     </div>
                 </div>
                 <div class="sidebar-items">
-                    <button class="sidebar-btn-green">HOME</button>
-                    <button class="sidebar-btn-green">BUSCAR LIVROS</button>
-                    <button class="sidebar-btn-green">CONFIGURAÇÕES</button>
+                    <button class="sidebar-btn-green" onclick="location.href='@Url.Action("Index","Home")'">HOME</button>
+                    <button class="sidebar-btn-green" onclick="location.href='@Url.Action("Index","Home")'">BUSCAR LIVROS</button>
+                    <button class="sidebar-btn-green" onclick="location.href='@Url.Action("Index","Home")'">CONFIGURAÇÕES</button>
                 </div>
                     
                 <div class="sidebar-exit">
-                    <button class="sidebar-btn-grey">SAÍDA</button>
+                    <button class="sidebar-btn-grey" onclick="location.href='@Url.Action("Logout","Home")'">SAÍDA</button>
                 </div>
             </aside>
-            @RenderBody()
+
+            <div class="d-flex flex-column align-items-center justify-content-center h-100 w-100 mt-2">
+                <div class="home-card">
+                    <div class="home-card-title">
+                        @ViewData["CardTitle"]
+                    </div>
+                    @RenderBody()
+                </div>
+            </div>
         </div>
     }
-
     else
     {
         @RenderBody()

@@ -1,20 +1,11 @@
 ﻿<link rel="stylesheet" href="~/css/Home/styles.css" asp-append-version="true" />
 @{
     ViewData["Title"] = "Home Page";
+    ViewData["CardTitle"] = "HOME";
 }
 
 <div class="container d-flex flex-column justify-content-center align-items-center w-100 h-100 gap-2">
    Home
-        @using (Html.BeginForm("List", "BuscarLivros", FormMethod.Get))
-        {
-
-            <div class="form-group">
-                <label for="titleBook">Digite o nome do livro:</label>
-                <input type="text" name="titleBook" class="form-control" id="titleBook" />
-            </div>
-            <button type="submit" class="btn btn-primary">Pesquisar</button>
-
-        }
 </div>
 
 <script>

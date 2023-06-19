@@ -20,15 +20,6 @@ namespace BookStore.Controllers
             return View();
         }
 
-        public IActionResult Logout()
-        {
-            if (HttpContext.Session.GetString("UserId") != null)
-            {
-                ClienteInSession.GetClienteFromSession(HttpContext);
-                HttpContext.Session.Clear();
-                TempData["Success"] = "Logout efetuado com sucesso";
-            }
-            return RedirectToAction("Index", "Home");
-        }
+
     }
 }

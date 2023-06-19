@@ -1,7 +1,0 @@
-﻿@model BookStore.ViewModels.BookDetailsViewModel
-<h1>@Model.Title</h1>
-<hr />
-<h5>Adicione a sua lista:</h5>
-<button name="status" value="Concuido"><a>Já Li</a></button>
-<button><a asp-controller="UserBook" asp-action="Index" asp-route-bookStatus= 3 asp-route-bookId="@Model.Id">Lerei</a></button>
-<button name="status" value="Desisti"><a>Desisti</a></button>
