@@ -45,7 +45,7 @@ namespace BookStore.Repository
 
         public void Update(T entity)
         {
-            _context.Set<T>().Add(entity);
+            _context.Set<T>().Update(entity);
         }
     }
 }

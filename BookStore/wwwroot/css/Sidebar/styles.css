@@ -51,6 +51,11 @@
     height: 75px;
     border-radius: 100px;
 }
+.configuration-profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+}
 
 .sidebar-profile-info {
     display: flex;

@@ -2,3 +2,47 @@
     ViewData["Title"] = "Home Page";
     ViewData["CardTitle"] = "CONFIGURAÇÕES";
 }
+@model BookStore.ViewModels.UsuarioConfiguracaoViewModel
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <form asp-action="Index" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group mb-4 d-flex align-items-center justify-content-center">
+                    <div>
+                        <img src="@((!String.IsNullOrEmpty(@Model.ImagemUsuario)) ? "data:image;base64," + @Model.ImagemUsuario : "/img/book-empty.jpg")" class="configuration-profile-avatar" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ImagemUsuario" class="control-label">Fotografia</label>
+                    <input asp-for="ImagemUsuario" name="imagemFile" type="file" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                </div>
+                <div class="form-group mb-2">
+                    <label asp-for="Nome" class="control-label"></label>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger text-center"></span>
+                </div>
+                <div class="form-group mb-2">
+                    <label asp-for="Sobrenome" class="control-label"></label>
+                    <input asp-for="Sobrenome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger text-center"></span>
+                </div>
+                <div class="form-group mb-2">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label asp-for="Senha" class="control-label"></label>
+                    <input asp-for="Senha" value="@Model.Senha" class="form-control" />
+                    <span asp-validation-for="Senha" class="text-danger text-center"></span>
+                </div>
+                <div class="form-group text-center mb-2 d-flex justify-content-center ">
+                    <button type="submit" class="sidebar-btn-green">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>

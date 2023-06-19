@@ -1,24 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BookStore.Models
+namespace BookStore.ViewModels
 {
-    public class User
+    public class UsuarioConfiguracaoViewModel
     {
-        public User()
-        {
-        }
-        public User( string nome,string sobrenome, string email, string password)
-        {
-            Nome = nome;
-            Sobrenome = sobrenome;
-            Email = email;
-            Senha = password;
-            DataCadastro = DateTime.Now;
-        }
-
         public int Id { get; set; }
-        [Required(ErrorMessage = "O nome deve ser informado")]
-        [MinLength(3, ErrorMessage = "O nome deve conter mínimo 3 caracteres")]
+        [Required(ErrorMessage = "O sobrenome deve ser informado")]
+        [MinLength(3, ErrorMessage = "O sobrenome deve conter mínimo 3 caracteres")]
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "O sobrenome deve ser informado")]
@@ -34,9 +22,6 @@ namespace BookStore.Models
         [DataType(DataType.Password)]
         public string Senha { get; set; }
         public string ImagemUsuario { get; set; }
-        public DateTime DataCadastro { get; set; }
-        public List<UserBook> UserBooks { get; set; }
-
 
     }
 }

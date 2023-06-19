@@ -27,7 +27,7 @@
                 </div>
                 <div class="sidebar-profile">
                     <div>
-                        <img src="~/img/bruna.png" class="sidebar-profile-avatar"/>
+                        <img src="@((!String.IsNullOrEmpty(BookStore.Utils.ClienteInSession.UsuarioAutenticado.ImagemUsuario)) ? "data:image;base64," + BookStore.Utils.ClienteInSession.UsuarioAutenticado.ImagemUsuario : "/img/book-empty.jpg")" class="sidebar-profile-avatar" />
                     </div>
                     <div class="sidebar-profile-info">
                         <span class="sidebar-profile-info-boas-vindas">Seja bem-vindo,</span>

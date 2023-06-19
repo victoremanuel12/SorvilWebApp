@@ -1,10 +1,8 @@
-﻿using BookStore.Models;
-using BookStore.Repository.Interfaces;
+﻿using BookStore.Repository.Interfaces;
+using BookStore.Utils;
 using BookStore.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using TccMvc.Cripitografia;
-using BookStore.Utils;
-using Microsoft.CodeAnalysis;
 
 namespace BookStore.Controllers
 {
@@ -25,7 +23,7 @@ namespace BookStore.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(LoginViewModel user)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 if (user != null)
                 {
