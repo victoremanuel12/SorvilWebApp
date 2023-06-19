@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - BookStore</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Sidebar/styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/BookStore.styles.css" asp-append-version="true" />
 </head>
 <body>
@@ -18,52 +19,41 @@
 
     @if (BookStore.Utils.ClienteInSession.UsuarioAutenticado != null)
     {
-        <header>
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-                <div class="container-fluid">
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BookStore</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                        <ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                            @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
-                            @if (HttpContextAccessor.HttpContext.Session.GetString("UserId") == null)
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-controller="UserAccount" asp-action="Login">Login</a>
-                                </li>
-                            }
-                            else
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-controller="UserAccount" asp-action="Logout">Sair</a>
-                                </li>
-                            }
-                            <li class="nav-item">
-                                @using (Html.BeginForm("List", "SearchBook", FormMethod.Get))
-                                {
-                                    <div class="form-group">
-                                        <label for="titleBook">Digite o nome do livro:</label>
-                                        <input type="text" name="titleBook" class="form-control" id="titleBook" />
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Pesquisar</button>
-                                }
-                            </li>
-                        </ul>
+        <div class="d-flex flex-row h-100 w-100">
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <img src="~/img/sorvil-logo.png" class="sidebar-header-logo"/>
+                    <span class="sidebar-header-text">S O R V I L</span>
+                </div>
+                <div class="sidebar-profile">
+                    <div>
+                        <img src="~/img/bruna.png" class="sidebar-profile-avatar"/>
+                    </div>
+                    <div class="sidebar-profile-info">
+                        <span class="sidebar-profile-info-boas-vindas">Seja bem-vindo,</span>
+                        <span>@BookStore.Utils.ClienteInSession.UsuarioAutenticado.Nome</span>
+                        <span>@BookStore.Utils.ClienteInSession.UsuarioAutenticado.Sobrenome</span>
                     </div>
                 </div>
-            </nav>
-        </header>
+                <div class="sidebar-items">
+                    <button class="sidebar-btn-green">HOME</button>
+                    <button class="sidebar-btn-green">BUSCAR LIVROS</button>
+                    <button class="sidebar-btn-green">CONFIGURAÇÕES</button>
+                </div>
+                    
+                <div class="sidebar-exit">
+                    <button class="sidebar-btn-grey">SAÍDA</button>
+                </div>
+            </aside>
+            @RenderBody()
+        </div>
     }
-    
-    @RenderBody()
 
+    else
+    {
+        @RenderBody()
 
+    }
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

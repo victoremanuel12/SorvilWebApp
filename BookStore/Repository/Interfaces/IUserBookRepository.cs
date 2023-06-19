@@ -4,5 +4,6 @@ namespace BookStore.Repository.Interfaces
 {
     public interface IUserBookRepository : IRepository<UserBook>
     {
+      
     }
 }

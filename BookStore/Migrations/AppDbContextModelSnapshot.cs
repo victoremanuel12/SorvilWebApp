@@ -80,8 +80,8 @@ namespace BookStore.Migrations
                     b.Property<int>("PageCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("PublishedDate")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("PublishedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -102,7 +102,7 @@ namespace BookStore.Migrations
             modelBuilder.Entity("BookStore.Models.UserBook", b =>
                 {
                     b.HasOne("BookStore.Models.User", "User")
-                        .WithMany("UserBook")
+                        .WithMany("Book")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -112,7 +112,7 @@ namespace BookStore.Migrations
 
             modelBuilder.Entity("BookStore.Models.User", b =>
                 {
-                    b.Navigation("UserBook");
+                    b.Navigation("Book");
                 });
 #pragma warning restore 612, 618
         }

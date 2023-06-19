@@ -4,6 +4,7 @@ using BookStore.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using TccMvc.Cripitografia;
 using BookStore.Utils;
+using Microsoft.CodeAnalysis;
 
 namespace BookStore.Controllers
 {
