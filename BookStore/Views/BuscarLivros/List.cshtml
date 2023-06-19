@@ -1,17 +1,61 @@
-﻿@model BookStore.ViewModels.BookViewModel
-@if (Model.Items != null && Model.Items.Count > 0)
-{
-    <h1>Livros encontrados:</h1>
-    foreach (var livro in Model.Items)
+﻿@model BookStore.ViewModels.BookViewModel;
+@{
+    ViewData["Title"] = "Home Page";
+    ViewData["CardTitle"] = "BUSCAR LIVROS";
+}
+
+
+<div class="mx-3">
+    <span>Resultados da Busca "@Model.ResultadoDaBusca": </span>
+</div>
+<div class="d-flex flex-row flex-wrap gap-3 px-3">
+    @if (Model.Items != null && Model.Items.Count > 0)
     {
-        <h2>@livro.VolumeInfo.Title</h2>
-        <img src="@(!string.IsNullOrEmpty(livro.VolumeInfo.ImageLinks?.SmallThumbnail) ?
-                    livro.VolumeInfo.ImageLinks.SmallThumbnail :
-                    livro.VolumeInfo.ImageLinks?.Thumbnail)" alt="Imagem do livro" />
-        <button><a asp-action="Details" asp-controller="SearchBook" asp-route-bookId="@livro.Id">Detalhes</a></button>
+        @foreach (var livro in Model.Items)
+        {
+            <div class="card-book">
+                <img class="card-book-image"
+             src="@(!string.IsNullOrEmpty(livro.VolumeInfo.ImageLinks?.SmallThumbnail) ? livro.VolumeInfo.ImageLinks.SmallThumbnail :
+                (!string.IsNullOrEmpty(livro.VolumeInfo.ImageLinks?.Thumbnail)) ? livro.VolumeInfo.ImageLinks?.Thumbnail : "/img/book-empty.jpg")" alt="Imagem do livro" />
+                <div class="card-book-info">
+                    <span class="card-book-title">
+                        @if (@livro.VolumeInfo.Title.Length > 25)
+                        {
+                            <span>@String.Concat(@livro.VolumeInfo.Title.Substring(0, 25), "...")</span>
+                        }
+                        else
+                        {
+                            <span>@livro.VolumeInfo.Title</span>
+                        }
+
+                    </span>
+                    <span class="card-book-authors">
+                        @if (livro.VolumeInfo.Authors != null)
+                        {
+                            @foreach (var autor in livro.VolumeInfo.Authors)
+                            {
+                                @if (autor.Length > 25)
+                                {
+                                    <span>@String.Concat(autor.Substring(0, 25), "...")</span>
+                                }
+                                else
+                                {
+                                    <span>@autor</span>
+                                }
+                            }
+                        }
+                        else
+                        {
+                            <span>Autor não identificado</span>
+                        }
+                    </span>
+                </div>
+                <button class="srvl-btn-green" onclick="location.href='@Url.Action("Details","BuscarLivros",new {bookId = livro.Id})'" style="width: 120px;height: 30px;">DETALHES</button>
+            </div>
+        }
     }
-}
-else
-{
-    <h1>Não foram encontrados livros</h1>
-}
+    else
+    {
+        <h1>Não foram encontrados livros</h1>
+    }
+</div>

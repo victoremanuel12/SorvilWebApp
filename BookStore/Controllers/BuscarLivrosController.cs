@@ -3,7 +3,6 @@ using BookStore.Services;
 using BookStore.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
-using PagedList;
 
 namespace BookStore.Controllers
 {
@@ -26,6 +25,7 @@ namespace BookStore.Controllers
             try
             {
                 var viewModel = new BookViewModel();
+                viewModel.ResultadoDaBusca = titleBook;
                 if (!string.IsNullOrEmpty(titleBook))
                 {
                     var books = await _requestApiBook.SearchBooks(titleBook);

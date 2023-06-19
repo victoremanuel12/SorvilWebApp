@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\img\\background.png"
     },
     {
+      "Id": "D:\\Sorvil\\BookStore\\wwwroot\\img\\book-empty.jpg",
+      "PackagePath": "staticwebassets\\img\\book-empty.jpg"
+    },
+    {
       "Id": "D:\\Sorvil\\BookStore\\wwwroot\\img\\bruna.png",
       "PackagePath": "staticwebassets\\img\\bruna.png"
     },

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uc3IWUfDZpnFUMTeB6chfnA3kun2l258QiS10IRgySU=",
+  "Hash": "NkQ8NK7r2whPxM0A4jma1MjGyb38i0xBrlvOgD7atpw=",
   "Source": "BookStore",
   "BasePath": "_content/BookStore",
   "Mode": "Default",
@@ -134,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\background.png"
+    },
+    {
+      "Identity": "D:\\Sorvil\\BookStore\\wwwroot\\img\\book-empty.jpg",
+      "SourceId": "BookStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Sorvil\\BookStore\\wwwroot\\",
+      "BasePath": "_content/BookStore",
+      "RelativePath": "img/book-empty.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\book-empty.jpg"
     },
     {
       "Identity": "D:\\Sorvil\\BookStore\\wwwroot\\img\\bruna.png",
