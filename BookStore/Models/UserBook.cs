@@ -2,7 +2,7 @@
 {
     public enum BookStatus
     {
-        Desisti = 0,
+        NaoLido = 0,
         Lerei = 1,
         Lendo = 2,
         Concluído = 3,
@@ -12,12 +12,12 @@
         public int Id { get; set; }
         public string BookId { get; set; }
         public string Title { get; set; }
-        public string Description { get; set; }
-        public string Author { get; set; }
-        public string Image { get; set; }
-        public int PageCount { get; set; }
-        public string IndustryIdentifier { get; set; }
-        public string PublishedDate { get; set; }
+        public string? Description { get; set; }
+        public string? Author { get; set; }
+        public string? Image { get; set; }
+        public int? PageCount { get; set; }
+        public string? IndustryIdentifier { get; set; }
+        public string? PublishedDate { get; set; }
         public BookStatus Status { get; set; }
         public virtual int UserId { get; set; }
 

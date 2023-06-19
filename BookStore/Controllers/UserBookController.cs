@@ -41,7 +41,7 @@ namespace BookStore.Controllers
                         Author = string.Join("/", book.Result.VolumeInfo.Authors),
                         Description = book.Result.VolumeInfo.Description,
                         Image = book.Result.VolumeInfo.ImageLinks.Thumbnail,
-                        IndustryIdentifier = book.Result.VolumeInfo.IndustryIdentifiers.ToString(),
+                        IndustryIdentifier = null,
                         Title = book.Result.VolumeInfo.Title,
                         PageCount = book.Result.VolumeInfo.PageCount,
                         PublishedDate = book.Result.VolumeInfo.PublishedDate,
