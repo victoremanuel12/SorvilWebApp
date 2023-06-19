@@ -1,0 +1,7 @@
+﻿@model BookStore.ViewModels.BookOnShelfViewModel;
+@foreach( var book in Model.Books)
+{
+    <h1>@book.Title</h1>
+    <img src="@book.Image"/>
+    <span>@book.Status</span>
+}

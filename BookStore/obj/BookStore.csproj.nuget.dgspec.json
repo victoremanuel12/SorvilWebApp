@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Sorvil\\BookStore\\BookStore.csproj": {}
+    "C:\\Users\\victor.silva\\Documents\\Estudos\\BookStore\\BookStore\\BookStore.csproj": {}
   },
   "projects": {
-    "D:\\Sorvil\\BookStore\\BookStore.csproj": {
+    "C:\\Users\\victor.silva\\Documents\\Estudos\\BookStore\\BookStore\\BookStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Sorvil\\BookStore\\BookStore.csproj",
+        "projectUniqueName": "C:\\Users\\victor.silva\\Documents\\Estudos\\BookStore\\BookStore\\BookStore.csproj",
         "projectName": "BookStore",
-        "projectPath": "D:\\Sorvil\\BookStore\\BookStore.csproj",
-        "packagesPath": "C:\\Users\\gabriel.pontes\\.nuget\\packages\\",
-        "outputPath": "D:\\Sorvil\\BookStore\\obj\\",
+        "projectPath": "C:\\Users\\victor.silva\\Documents\\Estudos\\BookStore\\BookStore\\BookStore.csproj",
+        "packagesPath": "C:\\Users\\victor.silva\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\victor.silva\\Documents\\Estudos\\BookStore\\BookStore\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\gabriel.pontes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\victor.silva\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -96,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
