@@ -3,6 +3,7 @@ using BookStore.Services;
 using BookStore.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
+using PagedList;
 
 namespace BookStore.Controllers
 {
@@ -44,6 +45,7 @@ namespace BookStore.Controllers
             }
             return View();
         }
+
         public async Task<IActionResult> Details(string bookId)
         {
             try

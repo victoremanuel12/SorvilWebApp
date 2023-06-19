@@ -37,8 +37,8 @@
                 </div>
                 <div class="sidebar-items">
                     <button class="sidebar-btn-green" onclick="location.href='@Url.Action("Index","Home")'">HOME</button>
-                    <button class="sidebar-btn-green" onclick="location.href='@Url.Action("Index","Home")'">BUSCAR LIVROS</button>
-                    <button class="sidebar-btn-green" onclick="location.href='@Url.Action("Index","Home")'">CONFIGURAÇÕES</button>
+                    <button class="sidebar-btn-green" onclick="location.href='@Url.Action("Index","BuscarLivros")'">BUSCAR LIVROS</button>
+                    <button class="sidebar-btn-green" onclick="location.href='@Url.Action("Index","Configuracoes")'">CONFIGURAÇÕES</button>
                 </div>
                     
                 <div class="sidebar-exit">
@@ -51,7 +51,9 @@
                     <div class="home-card-title">
                         @ViewData["CardTitle"]
                     </div>
-                    @RenderBody()
+                    <div class="w-100 p-1">
+                        @RenderBody()
+                    </div>
                 </div>
             </div>
         </div>
