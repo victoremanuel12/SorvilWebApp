@@ -23,7 +23,7 @@ namespace BookStore.Controllers
             var books = new List<UserBook>();
             User userInSession = ClienteInSession.GetClienteFromSession(HttpContext);
             User userBooks =  _uow.UserRepository.GetUserBooks(userInSession.Id);
-            foreach (var book in userBooks.UserBook)
+            foreach (var book in userBooks.UserBooks)
             {
                 books.Add(book);
             }
