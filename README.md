@@ -18,4 +18,5 @@ Relacionamento de Tabelas no SQL Server: Projetei o banco de dados SQL Server pa
 Entity Framework Core: Utilizei o Entity Framework Core como meu O/RM (Mapeador Relacional de Objeto) para mapear os objetos do aplicativo para as tabelas do banco de dados. Isso facilita o desenvolvimento e a manutenção, permitindo que os desenvolvedores trabalhem com objetos em vez de escrever consultas SQL diretamente.
 
 Code First: Adotei a abordagem Code First, permitindo que o modelo de banco de dados seja definido por meio de código C# em vez de criar o banco de dados manualmente. Isso promove a escalabilidade e a evolução contínua do aplicativo.
+</br>
 <b>No geral, minha aplicação C# MVC é uma solução robusta para o gerenciamento de livros que incorpora as melhores práticas de desenvolvimento, proporcionando uma experiência aprimorada para os entusiastas da leitura. Ela une tecnologia moderna e uma abordagem centrada no usuário para criar um ambiente onde os amantes de livros podem explorar, organizar e compartilhar suas paixões literárias de maneira eficaz e personalizada.</b>
