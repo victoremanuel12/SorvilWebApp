@@ -1,5 +1,5 @@
 # SorvilWebApp
-Com grande satisfação, apresento minha aplicação C# MVC que incorpora os princípios do Padrão de Arquitetura MVC (Model-View-Controller) para criar uma plataforma abrangente que oferece uma experiência de gerenciamento de livros de alta qualidade. Nesta aplicação, integrei vários conceitos e tecnologias para fornecer uma solução completa para os amantes de livros.
+ Aplicação C# MVC que incorpora os princípios do Padrão de Arquitetura MVC (Model-View-Controller) para criar uma plataforma abrangente que oferece uma experiência de gerenciamento de livros de alta qualidade. Nesta aplicação, integrei vários conceitos e tecnologias para fornecer uma solução completa para os amantes de livros.
 
 Padrão MVC: A arquitetura MVC divide a aplicação em três componentes interconectados: o Modelo, que representa os dados e a lógica de negócios, a Visão, que cuida da interface do usuário e o Controlador, que gerencia as solicitações do usuário e coordena as interações entre o Modelo e a Visão. Essa estrutura proporciona uma separação clara de responsabilidades, tornando o código mais organizado e fácil de manter.
 
