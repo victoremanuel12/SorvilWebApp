@@ -1,4 +1,4 @@
-# SorvilWebApp
+# Biblioteca de Livros
 <h2>Resumo da aplicação</h2>
 </br>
  Aplicação C# MVC que incorpora os princípios do Padrão de Arquitetura MVC (Model-View-Controller) para criar uma plataforma abrangente que oferece uma experiência de gerenciamento de livros de alta qualidade. Nesta aplicação, integrei vários conceitos e tecnologias para fornecer uma solução completa para os amantes de livros.
